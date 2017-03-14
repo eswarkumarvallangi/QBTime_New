@@ -139,7 +139,7 @@ namespace TimeTracking.Models
                         qboItem.IncomeAccountRef = new ReferenceType();
                         qboItem.IncomeAccountRef.Value = oReader["IncomeAccountRef"].ToString();
                         qboItem.TypeSpecified = true;
-                        if(oReader["Type"].ToString()==ItemTypeEnum.Service.ToString())
+                        if (oReader["Type"].ToString() == ItemTypeEnum.Service.ToString())
                         {//This example uses service items only, so we will default to service item anyway. In your implementation change the DB and data model to use correct type for item.
                             qboItem.Type = ItemTypeEnum.Service;
 
@@ -292,13 +292,14 @@ namespace TimeTracking.Models
             Dictionary<string, bool> isSync = new Dictionary<string, bool>();
             var itemDataInDb = service.GetDatafromDBItem(syncObjects);
 
-            if (itemDataInDb.ItemList.Count>0)
+            if (itemDataInDb.ItemList.Count > 0)
             {
                 for (int i = 0; i < itemDataInDb.ItemList.Count; i++)
                 {
                     string EXISTING_ITEM_QUERY = string.Format("select * from Item where active = true and name = '{0}'", itemDataInDb.ItemList[i].Name.Trim());
                     QueryService<Item> queryService = new QueryService<Item>(service.ServiceContext);
-                    Item resultFound = queryService.ExecuteIdsQuery(EXISTING_ITEM_QUERY).FirstOrDefault<Item>();
+                    Item resultFound = queryService.ExecuteIdsQuery(EXISTING_ITEM_QUERY).FirstOrDefault
+                    <Item>();
                     if (resultFound != null)
                     {
                         itemDataInDb.ItemList[i].Id = resultFound.Id;
@@ -383,9 +384,9 @@ namespace TimeTracking.Models
                 for (int i = 0; i < empDataInDb.EmployeeList.Count; i++)
                 {
                     string EXISTING_EMPLOYEE_QUERY = string.Format("select * from employee where active = true and givenName='{0}' and familyName= '{1}'", empDataInDb.EmployeeList[i].GivenName.Trim(), empDataInDb.EmployeeList[i].FamilyName.Trim());
-                   QueryService<Employee> queryService = new QueryService<Employee>(service.ServiceContext);
+                    QueryService<Employee> queryService = new QueryService<Employee>(service.ServiceContext);
                     Employee resultFound = queryService.ExecuteIdsQuery(EXISTING_EMPLOYEE_QUERY).FirstOrDefault();
-                  if (resultFound != null)
+                    if (resultFound != null)
                     {
                         empDataInDb.EmployeeList[i].Id = resultFound.Id;
                         //indexIterator = i+1;

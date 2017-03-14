@@ -26,12 +26,11 @@ CREATE TABLE [dbo].[Item] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 CREATE TABLE [dbo].[OAuthTokens] (
-    [Id]            INT            IDENTITY (1, 1) NOT NULL,
-    [realmid]       INT            NOT NULL,
-    [access_token]  NVARCHAR (MAX) NULL,
-    [access_secret] NVARCHAR (MAX) NULL,
-    [datasource]    NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_dbo.OAuthTokens] PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Id]            INT            IDENTITY (1, 1),
+    [realmid]       NVARCHAR(MAX),
+    [access_token]  NVARCHAR (MAX) ,
+    [access_secret] NVARCHAR (MAX) ,
+    [datasource]    NVARCHAR (MAX)
 );
 CREATE TABLE [dbo].[TimeActivity] (
     [id]            INT          IDENTITY (1, 1) NOT NULL,
