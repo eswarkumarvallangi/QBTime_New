@@ -64,7 +64,7 @@ namespace TimeTracking.Controllers
                 //encrypt the tokens
                 oAuthorizationDB.access_secret = Utility.Encrypt(oAuthorizationdto.AccessTokenSecret, oAuthorizationdto.SecurityKey);
                 oAuthorizationDB.access_token = Utility.Encrypt(oAuthorizationdto.AccessToken, oAuthorizationdto.SecurityKey);
-                using (var oAuthorizationDBContext = new OAuthdataContext("DBContext"))
+                using (var oAuthorizationDBContext = new OAuthdataContext("DBContextLocal"))
                 {
                     //store the encrypted tokens to DB.
                     oAuthorizationDBContext.Tokens.Add(oAuthorizationDB);
