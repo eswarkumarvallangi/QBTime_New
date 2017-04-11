@@ -21,3 +21,4 @@ INSERT INTO [dbo].[Customer] ([Id], [GivenName], [FamilyName], [PrimaryPhone], [
 INSERT INTO [dbo].[Customer] ([Id], [GivenName], [FamilyName], [PrimaryPhone], [PrimaryEmailAddr]) VALUES (2, N'Nic', N'wolf', N'234-345-8905', N'nick@gmail.com')
 INSERT INTO [dbo].Item ([Id],[Name],[UnitPrice],[Type],[IncomeAccountRef]) VALUES (1,'Machines',N'100',N'Service',N'1') 
 insert into [dbo].Item ([Id],[Name],[UnitPrice],[Type],[IncomeAccountRef]) VALUES (1,'Machines',N'100',N'Service',N'1') 
+insert into [dbo].Item ([Id],[Name],[UnitPrice],[Type],[IncomeAccountRef]) VALUES (1,'Machines',N'100',N'Service',N'1') 
